@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+    <title>Address Book</title>
+  </head>
+  <body>
+    <div th:each="contact : ${contacts}">
+      <a th:href="@{/contacts/{contactId}(contactId=${contact.id})}" th:text="|${contact.firstName} ${contact.lastName}|"></a>
+    </div>
+    <form action="" method="post">
+      <div>
+        First Name: <input type="text" th:field="${contact.firstName}">
+      </div>
+      <div>
+        Last Name: <input type="text" th:field="${contact.lastName}">
+      </div>
+      <div>
+        Email Address: <input type="text" th:field="${contact.emailAddress}">
+      </div>
+      <div>
+	    <button type="submit">Create Contact</button>
+      </div>
+    </form>
+  </body>
+</html>
